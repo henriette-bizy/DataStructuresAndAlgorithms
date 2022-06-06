@@ -29,22 +29,30 @@ Node * addNode(Node *parent, int key){
 };
 
 //codes for displaying in a bfs way
+//this is printed in a ordered level to mean that all children are being printed on the same line
 
 void bfs_display(Node * root){
 
  queue<Node *> q;
  q.push(root);
   while(!q.empty()){
+
+     int size = q.size();
+    //  cout << "this is the size of children"<<endl;
+     while(size >0){
       Node * currentNode = q.front();
       cout << currentNode->key<<"  ";
       q.pop();
-
+     
       for(auto childrenNode:currentNode->children){
+      
           q.push(childrenNode);
       }
-  };
+      size--;
+  }
+  cout<<endl;
 }
-
+}
 
 
 int main(){
