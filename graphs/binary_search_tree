@@ -1,0 +1,75 @@
+#include<iostream>
+using namespace std;
+
+class Node{
+
+public:
+    int data;
+    Node *left;
+    Node *right;
+public:
+        Node(int data){
+            this->data = data;
+            this->left = NULL;
+            this->right = NULL;
+        }
+};
+
+class BinarySearchTree {
+   
+    private:
+          Node *root;
+    public:
+    BinarySearchTree(){
+        this->root = NULL;
+    }
+    
+
+    Node *add-node(Node *root, int value){
+        newNode = new Node(value);
+
+    if(root == NULL){
+        root = newNode;
+    }
+    if(value<root->data){
+        root->left = add-node(root->left,value)
+    }
+    else{
+        root->right = add-Node(root->right,value);
+    }
+
+
+return root;
+    }
+
+     void inOrderTraversal(Node *root)
+    {
+        if (root == NULL)
+        {
+            return;
+        }
+        inOrderTraversal(root->left);
+        cout << root->data << " ";
+        inOrderTraversal(root->right);
+    }
+​
+}
+int main(){
+    BinarySearchTree bst;
+
+    Node* root = bst.add-node(NULL,10);
+    bst.add-node(root,5);
+    bst.add-node(root,40);
+    bst.add-node(root,30);
+    bst.add-node(root,100);
+    bst.add-node(root,70);
+    bst.add-node(root,80);
+    bst.add-node(root,3);
+    bst.add-node(root,1);
+    bst.add-node(root,2)   ;
+
+
+    bst.inOrderTraversal(root);
+
+    return 0;
+}
