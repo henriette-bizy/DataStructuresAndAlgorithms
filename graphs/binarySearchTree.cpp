@@ -43,16 +43,15 @@ class BinarySearchTree {
 return root;
     }
 
-     void inOrderTraversal(Node *root)
-    {
-        if (root == NULL)
-        {
-            return;
-        }
-        inOrderTraversal(root->left);
-        cout << root->data << " ";
-        inOrderTraversal(root->right);
+    void inOrderTraversal(Node *root){
+        
+     if(root == NULL){return; }
+     
+     inOrderTraversal(root->left);
+     cout <<root->data << ",";
+     inOrderTraversal(root->right);
     }
+
 };
 
 int main(){
@@ -69,7 +68,7 @@ int main(){
     bst.add_node(root,1);
     bst.add_node(root,2)   ;
 
-
+    cout<<"In orderTraversal: ";
     bst.inOrderTraversal(root);
 
     return 0;

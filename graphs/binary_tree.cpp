@@ -1,4 +1,5 @@
 #include<iostream>
+#include <bits/stdc++.h>
 using namespace std;
 
 class Node{
@@ -17,7 +18,7 @@ public:
 
 
 class BinaryTree{
-   private:
+   public:
           Node *root;
 
     public:
@@ -25,21 +26,21 @@ class BinaryTree{
               this->root = NULL;
           }
         
-    Node *addNode(Node *current ,int data, bool IsLeft){
+    Node *addNode(Node *current ,int data, bool isLeft){
         Node *newNode = new Node(data);
         if(current == NULL){
             root = newNode;
         }
         else{
-            if(IsLeft){
+            if(isLeft){
                 current->left = newNode;
             }
             else{
                 current->right = newNode;
             }
 
-            return newNode;
         }
+        return newNode;
     }
 
 
@@ -74,22 +75,6 @@ class BinaryTree{
 int main(){
    
     BinaryTree bt;
-
-    // Node *root = bt.addNode(NULL,1,true);
-    // Node *left = bt.addNode(root,5,true);
-    // Node *right = bt.addNode(root,10,false);
-   
-    // Node *leftLeft = bt.addNode(left,3,true);
-    // Node *leftright = bt.addNode(left,6,false);
-    // Node *rightLeft = bt.addNode(right,9,true);
-    // Node *rightRight = bt.addNode(right,11,false);
-    // Node *leftLeftLeft = bt.addNode(leftLeft,2,true);
-    // Node *leftLeftRigt = bt.addNode(leftLeft,16,false);
-    // Node *leftRightLeft = bt.addNode(leftright,4,true);
-    // Node *RightLeftRight = bt.addNode(rightLeft,13,false);
-    // Node *RightRightRight = bt.addNode(rightRight,9,false);
-    // Node *RightRightLeft = bt.addNode(rightRight,15,true);
-
     Node *root = bt.addNode(NULL, 1, false);
 	Node *left = bt.addNode(root, 5, true);
 	Node *right = bt.addNode(root, 10, false);
@@ -103,10 +88,17 @@ int main(){
 	Node *rightLeftRight = bt.addNode(rightLeft, 13, false);
 	Node *rightRightLeft = bt.addNode(rightRight, 15, true);
 	Node *rightRightRight = bt.addNode(rightRight, 9, false);
- 
+  
+
+    cout <<"In order Traversal:";
     bt.inOrderTraversal(root);
-    
-    return 0;
+    cout<<endl;
+    cout <<"Pre-order traversal";
+    bt.preOrderTraversal(root);
+    cout<<endl;
+    cout <<"Post-order traversal:";
+    bt.postOrderTraversal(root);
+    return 0;     
 }
 
    
